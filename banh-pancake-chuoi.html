@@ -18,6 +18,7 @@
       --muted: #8b7d75;
       --shadow: 0 20px 40px rgba(0,0,0,0.06);
       --radius: 22px;
+      --accent: #f3bccc;
     }
 
     * { box-sizing: border-box; }
@@ -142,10 +143,47 @@
       animation: fadeInLeft 0.7s ease-out;
     }
 
+    .recipe-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .recipe-title {
       font-family: "Great Vibes", cursive;
       font-size: 46px;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
+    }
+
+    /* FAVORITE HEART */
+    .fav-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #f3c7d3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: #fff7fb;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    }
+    .fav-btn span {
+      font-size: 18px;
+      color: #f08aa6;
+      transition: transform .2s ease;
+    }
+    .fav-btn.active {
+      background: #ffe1ec;
+      box-shadow: 0 10px 20px rgba(240,138,166,0.4);
+    }
+    .fav-btn.active span {
+      transform: scale(1.2);
+    }
+    .fav-label {
+      font-size: 11px;
+      color: var(--muted);
     }
 
     .subtitle {
@@ -158,7 +196,7 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
     .chip {
@@ -168,6 +206,25 @@
       border-radius: 999px;
       border: 1px solid #dcd2ff;
       color: #6a5fa3;
+    }
+
+    /* RATING */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .stars span {
+      cursor: pointer;
+      font-size: 18px;
+      color: #d7c5c5;
+      transition: transform .15s ease, color .15s ease;
+    }
+    .stars span.active {
+      color: #f7b344;
+      transform: scale(1.1);
     }
 
     .hero-intro {
@@ -229,6 +286,35 @@
       margin-bottom: 8px;
     }
 
+    /* SERVING CALCULATOR */
+    .servings-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .servings-controls {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid #f0dccf;
+      overflow: hidden;
+      background: #fff7f1;
+    }
+    .servings-controls button {
+      border: none;
+      background: transparent;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .servings-value {
+      min-width: 26px;
+      text-align: center;
+      font-weight: 600;
+    }
+
     ul.pretty, ol.steps {
       padding-left: 18px;
       margin-bottom: 10px;
@@ -236,6 +322,44 @@
     }
     ul.pretty li, ol.steps li {
       margin-bottom: 6px;
+    }
+
+    /* DRAG & DROP */
+    .ingredient-item {
+      cursor: grab;
+    }
+    .ingredient-item.dragging {
+      opacity: 0.5;
+    }
+
+    .shopping-card {
+      background: #fffef8;
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px dashed #f0e0aa;
+    }
+    .shopping-drop {
+      min-height: 60px;
+      padding: 8px;
+      border-radius: 14px;
+      background: #fffdf2;
+      border: 1px dashed #e7cf8b;
+      font-size: 13px;
+    }
+    .shopping-item {
+      font-size: 13px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
+    }
+    .shopping-item button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      color: #c08a4d;
     }
 
     /* VIDEO CARD */
@@ -273,8 +397,8 @@
       box-shadow: 0 12px 22px rgba(0,0,0,0.07);
       border: 1px solid #f0e0aa;
       transform: rotate(-1.5deg);
+      margin-top: 16px;
     }
-
     .tip-note::before {
       content: "";
       position: absolute;
@@ -290,7 +414,6 @@
       left: 20%;
       border-radius: 4px;
     }
-
     .tip-note p {
       font-size: 13px;
       margin: 0;
@@ -300,14 +423,12 @@
     .recommend {
       margin-top: 24px;
     }
-
     .recommend-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 10px;
     }
-
     .rec-card {
       background: #fff;
       border-radius: 18px;
@@ -335,6 +456,48 @@
       margin-bottom: 2px;
     }
 
+    /* PERSONAL NOTES */
+    .notes-area {
+      width: 100%;
+      min-height: 80px;
+      border-radius: 14px;
+      border: 1px solid #ecdcd3;
+      padding: 10px;
+      font-family: "Lora", serif;
+      font-size: 13px;
+      resize: vertical;
+      background: #fffdfb;
+    }
+
+    /* RANDOM & MOOD BAR */
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    .btn-soft {
+      border-radius: 999px;
+      border: 1px solid #ecdcd3;
+      padding: 6px 10px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-soft span.icon {
+      font-size: 14px;
+    }
+
+    .random-result {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
@@ -348,6 +511,70 @@
         grid-template-columns: minmax(0, 1fr);
       }
     }
+
+    /* MOOD POPUP */
+    .mood-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .mood-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mood-box {
+      background: #fffdf8;
+      border-radius: 20px;
+      padding: 18px 20px;
+      max-width: 320px;
+      width: 90%;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      border: 1px solid #f0e2d7;
+      animation: fadeIn .25s ease-out;
+      text-align: center;
+      font-size: 14px;
+    }
+    .mood-title {
+      font-family: "Great Vibes", cursive;
+      font-size: 30px;
+      margin-bottom: 4px;
+    }
+    .mood-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 6px;
+    }
+    .mood-btn {
+      border-radius: 999px;
+      border: 1px solid #ecdcd3;
+      padding: 5px 10px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .mood-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
@@ -360,6 +587,21 @@
   <div class="doodle d2"></div>
   <div class="doodle d3"></div>
 
+  <!-- MOOD POPUP -->
+  <div class="mood-overlay" id="moodOverlay">
+    <div class="mood-box">
+      <div class="mood-title">Hôm nay bạn thấy sao?</div>
+      <div class="mood-sub">Mình gợi ý cách dùng món này tùy theo mood của bạn nhé.</div>
+      <div class="mood-buttons">
+        <button class="mood-btn" data-mood="met">Mệt mỏi</button>
+        <button class="mood-btn" data-mood="healthy">Muốn healthy</button>
+        <button class="mood-btn" data-mood="voi">Đang vội</button>
+        <button class="mood-btn" data-mood="anui">Cần an ủi</button>
+      </div>
+      <div class="mood-note" id="moodNote"></div>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav>
     <div class="logo">Nhà Bếp Nhỏ</div>
@@ -371,10 +613,26 @@
     </div>
   </nav>
 
+  <!-- TOP ACTIONS -->
+  <div class="top-actions">
+    <button class="btn-soft" id="moodBtn"><span class="icon">💭</span>Hỏi mood hôm nay</button>
+    <button class="btn-soft" id="randomBtn"><span class="icon">🎡</span>Hôm nay ăn gì?</button>
+    <div class="random-result" id="randomResult"></div>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <div class="recipe-title">Bánh pancake chuối</div>
+      <div class="recipe-title-row">
+        <div class="recipe-title">Bánh pancake chuối</div>
+        <div>
+          <div class="fav-btn" id="favBtn" title="Thêm vào yêu thích">
+            <span id="favIcon">♡</span>
+          </div>
+          <div class="fav-label" id="favLabel">Thêm vào yêu thích</div>
+        </div>
+      </div>
+
       <div class="subtitle">Mềm – thơm – ngọt tự nhiên, dành cho những buổi sáng muốn dịu dàng với chính mình.</div>
 
       <div class="chips">
@@ -382,6 +640,18 @@
         <div class="chip">Dễ</div>
         <div class="chip">Bữa sáng</div>
         <div class="chip">Ngọt nhẹ</div>
+      </div>
+
+      <div class="rating-row">
+        <span>Đánh giá của bạn:</span>
+        <div class="stars" id="starContainer">
+          <span data-star="1">★</span>
+          <span data-star="2">★</span>
+          <span data-star="3">★</span>
+          <span data-star="4">★</span>
+          <span data-star="5">★</span>
+        </div>
+        <span id="ratingText">(chưa có)</span>
       </div>
 
       <p class="hero-intro">
@@ -405,13 +675,42 @@
     <div>
       <div class="card">
         <h3 class="section-heading">Nguyên liệu</h3>
-        <ul class="pretty">
-          <li>1 quả chuối chín (càng chín càng ngọt).</li>
-          <li>1 quả trứng gà.</li>
-          <li>40g yến mạch (cán dẹt hoặc yến mạch xay mịn).</li>
-          <li>30–40ml sữa (sữa tươi hoặc sữa hạt).</li>
-          <li>1 thìa cà phê dầu ăn/bơ để chống dính chảo.</li>
-          <li>Topping: mật ong, trái cây cắt nhỏ, sữa chua,… (tùy thích).</li>
+
+        <!-- SERVING CALCULATOR -->
+        <div class="servings-row">
+          <span>Khẩu phần:</span>
+          <div class="servings-controls">
+            <button id="minusServings">−</button>
+            <span class="servings-value" id="servingsValue">2</span>
+            <button id="plusServings">+</button>
+          </div>
+          <span style="color:var(--muted);">người</span>
+        </div>
+
+        <ul class="pretty" id="ingredientList">
+          <!-- data-base="số khẩu phần gốc" & data-qty="lượng cho khẩu phần gốc" -->
+          <li class="ingredient-item" draggable="true"
+              data-base-servings="2" data-base-qty="1" data-unit="quả chuối chín (càng chín càng ngọt).">
+            <span class="ing-text">1 quả chuối chín (càng chín càng ngọt).</span>
+          </li>
+          <li class="ingredient-item" draggable="true"
+              data-base-servings="2" data-base-qty="1" data-unit="quả trứng gà.">
+            <span class="ing-text">1 quả trứng gà.</span>
+          </li>
+          <li class="ingredient-item" draggable="true"
+              data-base-servings="2" data-base-qty="40" data-unit="g yến mạch (cán dẹt hoặc yến mạch xay mịn).">
+            <span class="ing-text">40g yến mạch (cán dẹt hoặc yến mạch xay mịn).</span>
+          </li>
+          <li class="ingredient-item" draggable="true"
+              data-base-servings="2" data-base-qty="40" data-unit="ml sữa (sữa tươi hoặc sữa hạt).">
+            <span class="ing-text">40ml sữa (sữa tươi hoặc sữa hạt).</span>
+          </li>
+          <li class="ingredient-item" draggable="true">
+            <span class="ing-text">1 thìa cà phê dầu ăn/bơ để chống dính chảo.</span>
+          </li>
+          <li class="ingredient-item" draggable="true">
+            <span class="ing-text">Topping: mật ong, trái cây cắt nhỏ, sữa chua,… (tùy thích).</span>
+          </li>
         </ul>
       </div>
 
@@ -427,7 +726,7 @@
       </div>
     </div>
 
-    <!-- RIGHT: VIDEO + SUBSTITUTIONS + TIPS + RECOMMEND -->
+    <!-- RIGHT: VIDEO + SHOPPING LIST + SUBSTITUTIONS + TIPS + NOTES -->
     <div>
 
       <!-- VIDEO -->
@@ -438,6 +737,17 @@
         <p style="font-size:12px;color:var(--muted);margin-top:6px;">
           Đây chỉ là video tham khảo. Bạn có thể thay link này bằng video của chính mình (YouTube/ TikTok).
         </p>
+      </div>
+
+      <!-- SHOPPING LIST -->
+      <div class="card shopping-card">
+        <span class="pill-label">Giỏ đi chợ</span>
+        <h3 class="section-heading">Kéo nguyên liệu sang đây để tạo danh sách mua</h3>
+        <div id="shoppingDrop" class="shopping-drop">
+          <span style="font-size:12px;color:var(--muted);">
+            Kéo từng dòng nguyên liệu từ danh sách bên trái sang đây.
+          </span>
+        </div>
       </div>
 
       <!-- SUBSTITUTIONS -->
@@ -451,13 +761,21 @@
         </ul>
       </div>
 
-      <!-- TIPS STICKY NOTE -->
+      <!-- TIPS -->
       <div class="tip-note">
         <p><strong>Tip nhỏ xinh:</strong></p>
         <p>
           Để pancake vàng đều, hãy kiên nhẫn giữ lửa nhỏ – vừa, đừng nóng ruột tăng lửa lớn.
           Nếu muốn pancake “Instagrammable” hơn, hãy xếp chồng khoảng 4–5 cái, thêm trái cây nhiều màu lên trên và rưới mật ong từ từ.
         </p>
+      </div>
+
+      <!-- PERSONAL NOTES -->
+      <div class="card" style="margin-top:16px;">
+        <span class="pill-label">Ghi chú của bạn</span>
+        <h3 class="section-heading">Bạn muốn lưu ý gì cho lần nấu sau?</h3>
+        <textarea id="personalNotes" class="notes-area"
+                  placeholder="Ví dụ: thêm 1 thìa mật ong cho hợp khẩu vị, giảm bớt sữa cho bột đặc hơn,..."></textarea>
       </div>
 
     </div>
@@ -479,7 +797,7 @@
         <a class="rec-card" href="mon-ngot.html">
           <div class="rec-tag">Món ngọt</div>
           <div class="rec-title">Một món ngọt khác</div>
-          <div>(Bạn có thể link đến món mới khi thêm vào website.)</div>
+          <div>(Sau này bạn có thể link đến món mới khi thêm vào website.)</div>
         </a>
       </div>
     </div>
@@ -490,6 +808,244 @@
   </footer>
 
 </div>
+
+<script>
+  // ====== CONFIG ======
+  const RECIPE_ID = "banh_pancake_chuoi";
+
+  // ====== FAVORITES ======
+  const favBtn = document.getElementById("favBtn");
+  const favIcon = document.getElementById("favIcon");
+  const favLabel = document.getElementById("favLabel");
+
+  function loadFavorite() {
+    const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (favs.includes(RECIPE_ID)) {
+      favBtn.classList.add("active");
+      favIcon.textContent = "♥";
+      favLabel.textContent = "Đã thêm vào yêu thích";
+    }
+  }
+
+  function toggleFavorite() {
+    let favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (favs.includes(RECIPE_ID)) {
+      favs = favs.filter(id => id !== RECIPE_ID);
+      favBtn.classList.remove("active");
+      favIcon.textContent = "♡";
+      favLabel.textContent = "Thêm vào yêu thích";
+    } else {
+      favs.push(RECIPE_ID);
+      favBtn.classList.add("active");
+      favIcon.textContent = "♥";
+      favLabel.textContent = "Đã thêm vào yêu thích";
+    }
+    localStorage.setItem("favorites", JSON.stringify(favs));
+  }
+
+  favBtn.addEventListener("click", toggleFavorite);
+  loadFavorite();
+
+  // ====== RATING ======
+  const starContainer = document.getElementById("starContainer");
+  const ratingText = document.getElementById("ratingText");
+
+  function loadRating() {
+    const rating = Number(localStorage.getItem("rating_" + RECIPE_ID) || 0);
+    if (rating > 0) {
+      ratingText.textContent = `(${rating}/5)`;
+    }
+    Array.from(starContainer.children).forEach(span => {
+      const val = Number(span.dataset.star);
+      span.classList.toggle("active", val <= rating);
+    });
+  }
+
+  starContainer.addEventListener("click", (e) => {
+    if (e.target.dataset.star) {
+      const val = Number(e.target.dataset.star);
+      localStorage.setItem("rating_" + RECIPE_ID, val);
+      loadRating();
+    }
+  });
+
+  loadRating();
+
+  // ====== SERVING CALCULATOR ======
+  const servingsValue = document.getElementById("servingsValue");
+  const minusServ = document.getElementById("minusServings");
+  const plusServ = document.getElementById("plusServings");
+  const ingList = document.getElementById("ingredientList");
+  let currentServings = 2;
+
+  function updateIngredients() {
+    const items = ingList.querySelectorAll(".ingredient-item");
+    items.forEach(li => {
+      const baseServ = Number(li.dataset.baseServings || 0);
+      const baseQty = Number(li.dataset.baseQty || 0);
+      const unit = li.dataset.unit || "";
+      const span = li.querySelector(".ing-text");
+      if (baseServ && baseQty && unit && span) {
+        const newQty = baseQty * currentServings / baseServ;
+        const display = Number.isInteger(newQty) ? newQty : newQty.toFixed(1);
+        span.textContent = display + " " + unit;
+      }
+    });
+  }
+
+  minusServ.addEventListener("click", () => {
+    if (currentServings > 1) {
+      currentServings--;
+      servingsValue.textContent = currentServings;
+      updateIngredients();
+    }
+  });
+  plusServ.addEventListener("click", () => {
+    if (currentServings < 10) {
+      currentServings++;
+      servingsValue.textContent = currentServings;
+      updateIngredients();
+    }
+  });
+
+  updateIngredients();
+
+  // ====== DRAG & DROP SHOPPING LIST ======
+  const shoppingDrop = document.getElementById("shoppingDrop");
+  let draggedItem = null;
+
+  function renderShoppingList() {
+    const data = JSON.parse(localStorage.getItem("shopping_" + RECIPE_ID) || "[]");
+    shoppingDrop.innerHTML = "";
+    if (!data.length) {
+      shoppingDrop.innerHTML =
+        '<span style="font-size:12px;color:var(--muted);">Kéo từng dòng nguyên liệu từ danh sách bên trái sang đây.</span>';
+      return;
+    }
+    data.forEach((text, idx) => {
+      const div = document.createElement("div");
+      div.className = "shopping-item";
+      div.innerHTML = `<span>${text}</span><button data-idx="${idx}">✕</button>`;
+      shoppingDrop.appendChild(div);
+    });
+  }
+
+  ingList.querySelectorAll(".ingredient-item").forEach(li => {
+    li.addEventListener("dragstart", () => {
+      draggedItem = li.querySelector(".ing-text").textContent.trim();
+      li.classList.add("dragging");
+    });
+    li.addEventListener("dragend", () => {
+      li.classList.remove("dragging");
+      draggedItem = null;
+    });
+  });
+
+  shoppingDrop.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  shoppingDrop.addEventListener("drop", () => {
+    if (draggedItem) {
+      let data = JSON.parse(localStorage.getItem("shopping_" + RECIPE_ID) || "[]");
+      if (!data.includes(draggedItem)) {
+        data.push(draggedItem);
+        localStorage.setItem("shopping_" + RECIPE_ID, JSON.stringify(data));
+        renderShoppingList();
+      }
+    }
+  });
+
+  shoppingDrop.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON" && e.target.dataset.idx !== undefined) {
+      let data = JSON.parse(localStorage.getItem("shopping_" + RECIPE_ID) || "[]");
+      const idx = Number(e.target.dataset.idx);
+      data.splice(idx, 1);
+      localStorage.setItem("shopping_" + RECIPE_ID, JSON.stringify(data));
+      renderShoppingList();
+    }
+  });
+
+  renderShoppingList();
+
+  // ====== PERSONAL NOTES ======
+  const notesArea = document.getElementById("personalNotes");
+  function loadNotes() {
+    const text = localStorage.getItem("notes_" + RECIPE_ID) || "";
+    notesArea.value = text;
+  }
+  notesArea.addEventListener("input", () => {
+    localStorage.setItem("notes_" + RECIPE_ID, notesArea.value);
+  });
+  loadNotes();
+
+  // ====== RANDOM RECIPE WHEEL (đơn giản) ======
+  const randomBtn = document.getElementById("randomBtn");
+  const randomResult = document.getElementById("randomResult");
+  const recipes = [
+    { name: "Bánh pancake chuối", url: "banh-pancake-chuoi.html" },
+    { name: "Pudding xoài sữa dừa", url: "mon-ngot.html" },
+    { name: "Trà đào cam sả", url: "do-uong.html" },
+    { name: "Cơm gà sốt bơ tỏi", url: "mon-man.html" }
+  ];
+
+  randomBtn.addEventListener("click", () => {
+    randomResult.textContent = "Đang suy nghĩ giúp bạn hôm nay ăn gì...";
+    let count = 0;
+    const interval = setInterval(() => {
+      const r = recipes[Math.floor(Math.random() * recipes.length)];
+      randomResult.textContent = "Hay thử: " + r.name + " ?";
+      count++;
+      if (count > 10) {
+        clearInterval(interval);
+        const chosen = recipes[Math.floor(Math.random() * recipes.length)];
+        randomResult.innerHTML = `Hôm nay thử <strong>${chosen.name}</strong> nhé? ` +
+          `<a href="${chosen.url}" style="font-size:12px;">(Mở công thức)</a>`;
+      }
+    }, 120);
+  });
+
+  // ====== MOOD POPUP ======
+  const moodOverlay = document.getElementById("moodOverlay");
+  const moodBtn = document.getElementById("moodBtn");
+  const moodNote = document.getElementById("moodNote");
+
+  const moodTexts = {
+    met: "Bạn có thể nấu ít khẩu phần hơn, để việc chuẩn bị nhẹ nhàng. Ăn cùng trà nóng cho đỡ mệt nhé.",
+    healthy: "Giảm bớt mật ong, dùng sữa hạt và thêm trái cây tươi. Món vẫn ngon mà không quá áy náy.",
+    voi: "Giữ nguyên công thức, nhưng rán pancake nhỏ hơn để chín nhanh. Đừng quên chuẩn bị topping từ trước.",
+    anui: "Làm thêm 1–2 khẩu phần để chia cho người thân/ bạn bè. Đôi khi chia sẻ món ngọt cũng là tự an ủi mình."
+  };
+
+  function openMood() {
+    moodOverlay.classList.add("show");
+    moodNote.textContent = "";
+  }
+  function closeMood() {
+    moodOverlay.classList.remove("show");
+  }
+
+  moodBtn.addEventListener("click", openMood);
+  moodOverlay.addEventListener("click", (e) => {
+    if (e.target === moodOverlay) closeMood();
+  });
+
+  document.querySelectorAll(".mood-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const mood = btn.dataset.mood;
+      moodNote.textContent = moodTexts[mood] || "";
+      setTimeout(closeMood, 1200);
+    });
+  });
+
+  // Tự bật popup 1 lần khi user mới vào (có thể tắt nếu không thích)
+  if (!localStorage.getItem("seen_mood_popup")) {
+    setTimeout(() => {
+      openMood();
+      localStorage.setItem("seen_mood_popup", "1");
+    }, 800);
+  }
+</script>
 
 </body>
 </html>
