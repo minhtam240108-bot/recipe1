@@ -1,290 +1,55 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Món Mặn – Nhà Bếp Nhỏ</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Lora", serif;
-      background: #fff8f5;
-      color: #4a3b36;
-    }
-
-    nav {
-      background: #ffffff;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #f3e2da;
-    }
-
-    .logo {
-      font-family: "Great Vibes", cursive;
-      font-size: 32px;
-    }
-
-    .menu a {
-      margin-left: 18px;
-      text-decoration: none;
-      color: #4a3b36;
-      font-size: 14px;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: auto;
-      padding: 24px;
-    }
-
-    h1 {
-      text-align: center;
-      font-family: "Great Vibes", cursive;
-      font-size: 46px;
-      margin-bottom: 4px;
-    }
-
-    p.subtitle {
-      text-align: center;
-      margin-top: 0;
-      color: #7c6f66;
-      font-size: 14px;
-    }
-
-    .tools {
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    .btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid #f0d9d3;
-      background: white;
-      cursor: pointer;
-      font-size: 14px;
-      margin: 6px;
-    }
-
-    #mood-result, #wheel-result {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #7c6f66;
-    }
-
-    .recipe-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-
-    .recipe-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 16px;
-      border: 1px solid #f3ddd4;
-      transition: 0.25s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .recipe-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border-color: #f2c6c6;
-    }
-
-    .recipe-card img {
-      width: 100%;
-      border-radius: 14px;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .recipe-title {
-      font-family: "Great Vibes", cursive;
-      font-size: 32px;
-      margin: 10px 0 4px;
-    }
-
-    .recipe-meta {
-      font-size: 13px;
-      color: #7c6f66;
-      margin-bottom: 10px;
-    }
-
-    .chip {
-      display: inline-block;
-      background: #ffe9f0;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      margin-right: 6px;
-      border: 1px solid #f3d0d8;
-    }
-
-    .recipe-desc {
-      font-size: 14px;
-      margin: 10px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: #7c6f66;
-      font-size: 13px;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-
 <body>
-
-<nav>
-  <div class="logo">Nhà Bếp Nhỏ</div>
-  <div class="menu">
-    <a href="index.html">Trang chủ</a>
-    <a href="mon-man.html"><b>Món mặn</b></a>
-    <a href="mon-ngot.html">Món ngọt</a>
-    <a href="do-uong.html">Đồ uống</a>
-  </div>
-</nav>
 
 <div class="container">
 
-  <h1>Món Mặn</h1>
-  <p class="subtitle">Những món mặn đậm đà – thơm – đưa cơm, phù hợp mọi bữa gia đình.</p>
+  <!-- DOODLES -->
+  <div class="doodle d1"></div>
+  <div class="doodle d2"></div>
 
-  <!-- Mood + Wheel -->
-  <div class="tools">
-    <button class="btn" onclick="suggestMood('comfort')">🍲 Muốn ăn gì ấm bụng</button>
-    <button class="btn" onclick="suggestMood('quick')">⏳ Muốn món nhanh gọn</button>
-    <button class="btn" onclick="suggestMood('protein')">🥩 Muốn ăn nhiều đạm</button>
-    
-    <div id="mood-result"></div>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Nha Bep Nho</div>
+    <div class="menu">
+      <a href="index.html">Trang chu</a>
+      <a href="mon-man.html"><b>Mon man</b></a>
+      <a href="mon-ngot.html">Mon ngot</a>
+      <a href="do-uong.html">Do uong</a>
+    </div>
+  </nav>
 
-    <button class="btn" onclick="spinWheel()">🎡 Gợi ý món mặn hôm nay</button>
-    <div id="wheel-result"></div>
-  </div>
+  <!-- PAGE TITLE -->
+  <div class="page-title">Mon Man</div>
 
-  <!-- Recipes -->
-  <div class="recipe-grid">
+  <!-- GRID OF DISHES -->
+  <div class="grid">
 
-    <!-- Sườn xào chua ngọt -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/998988/pexels-photo-998988.jpeg" />
-      <div class="recipe-title">Sườn xào chua ngọt</div>
-      <div class="recipe-meta">50 phút · Trung bình</div>
-      <div class="chip">Sườn</div>
-      <div class="chip">Chua ngọt</div>
-      <p class="recipe-desc">Món sườn mềm, bóng đẹp, vị chua ngọt hài hòa – cực đưa cơm.</p>
-    </a>
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="https://images.pexels.com/photos/14875153/pexels-photo-14875153.jpeg" alt="Suon xao chua ngot">
+      <div class="card-content">
+        <div class="card-title">Suon xao chua ngot</div>
+        <div class="card-desc">Miem, bong, chua ngot hai hoa – rat dua com.</div>
+        <a class="btn" href="suon-xao-chua-ngot.html">Xem cong thuc</a>
+      </div>
+    </div>
 
-    <!-- Kho quẹt -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/533932/pexels-photo-533932.jpeg" />
-      <div class="recipe-title">Kho quẹt</div>
-      <div class="recipe-meta">40 phút · Dễ</div>
-      <div class="chip">Ba chỉ</div>
-      <div class="chip">Tôm khô</div>
-      <p class="recipe-desc">Món chấm quốc dân của người Nam – mặn ngọt đậm đà, ăn kèm rau luộc tuyệt vời.</p>
-    </a>
-
-    <!-- Thịt bò khô -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/60619/beef-meat-cow-food-60619.jpeg" />
-      <div class="recipe-title">Thịt bò khô</div>
-      <div class="recipe-meta">40 phút · Dễ</div>
-      <div class="chip">Thịt bò</div>
-      <div class="chip">Sả</div>
-      <p class="recipe-desc">Thịt bò mềm dai, thơm sả tỏi, vị cay nhẹ – nhâm nhi hay ăn vặt đều hợp.</p>
-    </a>
-
-    <!-- Thịt quay giòn bì kiểu Anh -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/5061058/pexels-photo-5061058.jpeg" />
-      <div class="recipe-title">Thịt quay giòn bì kiểu Anh</div>
-      <div class="recipe-meta">60 phút · Dễ</div>
-      <div class="chip">Ba chỉ</div>
-      <div class="chip">Giòn bì</div>
-      <p class="recipe-desc">Lớp da giòn rụm, thịt mềm mọng nước – chuẩn kiểu roast pork của Anh.</p>
-    </a>
-
-    <!-- Bánh cuốn thịt nướng -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/4198027/pexels-photo-4198027.jpeg" />
-      <div class="recipe-title">Bánh cuốn thịt nướng</div>
-      <div class="recipe-meta">180 phút · Khó</div>
-      <div class="chip">Bánh cuốn</div>
-      <div class="chip">Thịt nướng</div>
-      <p class="recipe-desc">Vị bánh mềm mịn, thịt nướng thơm, ăn kèm nước chấm chua ngọt rất hợp vị.</p>
-    </a>
-
-    <!-- Bún chả -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/6168372/pexels-photo-6168372.jpeg" />
-      <div class="recipe-title">Bún chả</div>
-      <div class="recipe-meta">120 phút · Khó</div>
-      <div class="chip">Thịt nướng</div>
-      <div class="chip">Đồ chua</div>
-      <p class="recipe-desc">Thịt nướng thơm, viên chả mềm, nước chấm đậm đà – món đặc trưng Hà Nội.</p>
-    </a>
-
-    <!-- Khô heo -->
-    <a class="recipe-card" href="#">
-      <img src="https://images.pexels.com/photos/3026809/pexels-photo-3026809.jpeg" />
-      <div class="recipe-title">Khô heo</div>
-      <div class="recipe-meta">90 phút · Dễ</div>
-      <div class="chip">Thịt heo</div>
-      <div class="chip">Sả</div>
-      <p class="recipe-desc">Thịt thớ dài, sấy khô vừa, cay nhẹ – ngon hơn cả khô bò mua sẵn.</p>
-    </a>
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="https://images.pexels.com/photos/12118864/pexels-photo-12118864.jpeg" alt="Kho quet">
+      <div class="card-content">
+        <div class="card-title">Kho quet</div>
+        <div class="card-desc">Man ngot, beo beo – an kem rau cu cuc dua.</div>
+        <a class="btn" href="kho-quet.html">Xem cong thuc</a>
+      </div>
+    </div>
 
   </div>
+
+  <footer style="text-align:center;margin:40px 0;color:var(--muted);font-size:13px;">
+    © 2025 Nha Bep Nho – Mon Man
+  </footer>
 
 </div>
-
-<footer>
-  © 2025 Nhà Bếp Nhỏ – Món mặn.
-</footer>
-
-<script>
-/* ===== Mood suggestion ===== */
-function suggestMood(mood) {
-  let text = "";
-
-  if (mood === "comfort")
-    text = "Bạn muốn ấm bụng — thử kho quẹt hoặc sườn xào chua ngọt nhé!";
-  if (mood === "quick")
-    text = "Bạn muốn món nhanh — thịt bò khô hoặc kho quẹt là lựa chọn hợp lý.";
-  if (mood === "protein")
-    text = "Muốn ăn nhiều đạm? Thử thịt quay giòn bì hoặc bún chả nhé!";
-
-  document.getElementById("mood-result").textContent = text;
-}
-
-/* ===== Random Recipe Wheel ===== */
-function spinWheel() {
-  const recipes = [
-    "Sườn xào chua ngọt 🍖",
-    "Kho quẹt 🍲",
-    "Thịt bò khô 🐄",
-    "Thịt quay giòn bì 🥩",
-    "Bánh cuốn thịt nướng 🍘",
-    "Bún chả 🍜",
-    "Khô heo 🐷"
-  ];
-
-  const pick = recipes[Math.floor(Math.random() * recipes.length)];
-  document.getElementById("wheel-result").textContent = "Hôm nay ăn: " + pick;
-}
-</script>
 
 </body>
 </html>
