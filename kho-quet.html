@@ -47,6 +47,7 @@
       pointer-events: none;
       z-index: -1;
     }
+
     .doodle.d1 {
       width: 150px; height: 150px;
       border-radius: 50%;
@@ -54,6 +55,7 @@
       top: 10px; left: -40px;
       animation: float 9s ease-in-out infinite;
     }
+
     .doodle.d2 {
       width: 130px; height: 130px;
       border-radius: 40px;
@@ -62,6 +64,7 @@
       transform: rotate(-10deg);
       animation: wobble 7s ease-in-out infinite;
     }
+
     .doodle.d3 {
       width: 120px; height: 120px;
       border-radius: 50%;
@@ -69,6 +72,7 @@
       bottom: 0; right: -50px;
       animation: float 10s ease-in-out infinite reverse;
     }
+
     .doodle::before {
       content: "🍲";
       position: absolute;
@@ -82,6 +86,7 @@
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
+
     @keyframes wobble {
       0%,100% { transform: rotate(-10deg); }
       50% { transform: rotate(5deg); }
@@ -117,6 +122,7 @@
       font-weight: 500;
       position: relative;
     }
+
     .menu a::after {
       content: "";
       position: absolute;
@@ -125,6 +131,7 @@
       background: linear-gradient(90deg,#f3bccc,#f2d37a);
       transition: width .25s ease;
     }
+
     .menu a:hover::after {
       width: 100%;
     }
@@ -169,6 +176,7 @@
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
       box-shadow: 0 6px 14px rgba(0,0,0,0.05);
     }
+
     .fav-btn.active {
       background: #ffe1ec;
       box-shadow: 0 10px 20px rgba(240,138,166,0.4);
@@ -204,12 +212,14 @@
       margin-bottom: 8px;
       font-size: 13px;
     }
+
     .stars span {
       cursor: pointer;
       font-size: 18px;
       color: #d7c5c5;
       transition: transform .15s ease, color .15s ease;
     }
+
     .stars span.active {
       color: #f7b344;
       transform: scale(1.1);
@@ -226,7 +236,69 @@
       border-radius: 26px;
       box-shadow: var(--shadow);
     }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 34px;
+      background: #ffffffdd;
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid #f0e2d7;
+      box-shadow: var(--shadow);
+    }
+
+    .sec-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      font-family: "Great Vibes", cursive;
+      font-size: 36px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    /* SHOPPING LIST */
+    #shoppingList li {
+      list-style: none;
+      background: #fff3f7;
+      margin-bottom: 6px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #f3c7d3;
+      cursor: grab;
+    }
+
+    .dragging {
+      opacity: 0.5;
+    }
+
+    /* NOTES */
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 12px;
+      border: 1px solid #ddbccc;
+      background: #fffafc;
+    }
+
+    button {
+      margin-top: 8px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      background: #f3bccc;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+
+  </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -254,7 +326,6 @@
       <div class="recipe-title-row">
         <div class="recipe-title">Kho quẹt</div>
 
-        <!-- YÊU THÍCH -->
         <div class="fav-btn" id="favBtn">🤍</div>
       </div>
 
@@ -279,8 +350,8 @@
       </div>
 
       <p class="hero-intro">
-        Kho quẹt là món mặn bình dị nhưng đậm đà, chỉ từ tôm khô – thịt – nước mắm
-        mà tạo thành thứ nước kho thơm, sệt, ngọt mặn hài hòa. Ăn cùng rau luộc hay cơm trắng đều “ngon khó tả”.
+        Kho quẹt là món mặn dân dã mà “cuốn”, vị mặn ngọt hài hòa, thơm tôm khô – tóp mỡ.
+        Chấm cùng rau củ luộc hay ăn với cơm trắng đều ngon khó cưỡng.
       </p>
 
     </div>
@@ -290,7 +361,7 @@
          alt="Kho quẹt"/>
   </div>
 
-  <!-- NGUYÊN LIỆU + KHẨU PHẦN -->
+  <!-- INGREDIENTS -->
   <section class="section">
     <h2 class="sec-title">Nguyên liệu</h2>
 
@@ -305,35 +376,35 @@
     <ul id="ingredientList">
       <li data-base="200">200 g thịt ba chỉ nhiều mỡ</li>
       <li data-base="40">40 g tôm khô</li>
-      <li data-base="10">10–15 g hành khô (2–3 củ)</li>
+      <li data-base="10">10–15 g hành khô</li>
       <li data-base="10">10–15 g tỏi</li>
       <li data-base="14">1 thìa canh (14 g) đường trắng</li>
       <li data-base="14">1 thìa canh đường nâu</li>
       <li data-base="45">3–4 thìa canh nước mắm</li>
       <li data-base="0">Một ít ớt tươi, tiêu, hành xanh</li>
-      <li data-base="10">Dầu ăn (10–15 ml)</li>
+      <li data-base="15">Dầu ăn (15 ml)</li>
     </ul>
   </section>
 
-  <!-- DANH SÁCH MUA SẮM (DRAG AND DROP) -->
+  <!-- SHOPPING LIST -->
   <section class="section">
     <h2 class="sec-title">Giỏ mua sắm</h2>
-    <p>Nhấn vào nguyên liệu để thêm vào giỏ. Kéo để sắp xếp.</p>
+    <p>Nhấn vào nguyên liệu để thêm. Kéo để sắp xếp.</p>
 
-    <ul id="shoppingList" class="shopping"></ul>
+    <ul id="shoppingList"></ul>
   </section>
 
-  <!-- CÁCH LÀM -->
+  <!-- METHOD -->
   <section class="section">
     <h2 class="sec-title">Cách làm</h2>
 
-    <ol class="method">
-      <li>Rửa sạch tôm khô, ngâm nước sôi 20 phút cho mềm.</li>
-      <li>Thái thịt: tách riêng phần mỡ và nạc nếu được; hành tỏi băm nhỏ.</li>
-      <li>Để lửa vừa, rang phần mỡ để tiết mỡ và tạo tóp mỡ vàng. Vớt tóp để riêng.</li>
-      <li>Phi thơm hành tỏi, cho tôm + thịt vào đảo cho săn.</li>
-      <li>Pha nước kho theo tỉ lệ: 1 đường : 1.5–2 nước mắm : 1.5 nước. Đổ vào chảo.</li>
-      <li>Cho tóp mỡ + ớt vào, đun liu riu 5–10 phút đến khi nước sệt.</li>
+    <ol>
+      <li>Rửa sạch tôm khô, ngâm với nước sôi 20 phút cho mềm.</li>
+      <li>Thái thịt: nếu tách được phần mỡ riêng thì để riêng để thắng tóp mỡ.</li>
+      <li>Thắng mỡ: để lửa vừa, rang mỡ tới khi vàng giòn, vớt tóp để riêng.</li>
+      <li>Phi thơm hành tỏi, cho thịt + tôm vào đảo săn.</li>
+      <li>Pha nước kho: 1 đường : 1.5 – 2 nước mắm : 1.5 nước. Đổ vào chảo.</li>
+      <li>Cho tóp mỡ + ớt vào, đun nhỏ lửa 5–10 phút tới khi sốt sệt.</li>
       <li>Nêm lại, thêm hành xanh và tiêu.</li>
     </ol>
   </section>
@@ -341,26 +412,23 @@
   <!-- VIDEO -->
   <section class="section">
     <h2 class="sec-title">Video hướng dẫn</h2>
-
-    <div class="video-wrapper">
-      <iframe width="100%" height="315"
-              src="https://www.youtube.com/embed/uk_1KDqF69I"
-              frameborder="0"
-              allowfullscreen></iframe>
-    </div>
+    <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/uk_1KDqF69I"
+            frameborder="0"
+            allowfullscreen></iframe>
   </section>
 
-  <!-- GỢI Ý MÓN NGẪU NHIÊN (WHEEL) -->
+  <!-- WHEEL -->
   <section class="section">
     <h2 class="sec-title">Gợi ý hôm nay nên ăn gì?</h2>
-    <button id="spinBtn" class="spin-btn">Quay chọn món</button>
-    <div id="result"></div>
+    <button id="spinBtn">Quay chọn món</button>
+    <div id="result" style="margin-top:10px;font-weight:600;"></div>
   </section>
 
-  <!-- GHI CHÚ CÁ NHÂN -->
+  <!-- NOTES -->
   <section class="section">
     <h2 class="sec-title">Ghi chú của bạn</h2>
-    <textarea id="notes" placeholder="Ghi lại điều chỉnh khẩu vị, thời gian kho, mẹo riêng..."></textarea>
+    <textarea id="notes" placeholder="Ghi lại điều chỉnh, mẹo riêng..."></textarea>
     <button id="saveNotes">Lưu ghi chú</button>
   </section>
 
@@ -372,7 +440,7 @@
 
 <!-- SCRIPT -->
 <script>
-/* YÊU THÍCH */
+/* FAVORITE */
 const favBtn = document.getElementById("favBtn");
 favBtn.addEventListener("click", () => {
   favBtn.classList.toggle("active");
@@ -392,31 +460,34 @@ stars.forEach(star => {
   });
 });
 
-/* KHẨU PHẦN */
+/* SERVINGS */
 const servings = document.getElementById("servings");
-const ingList = document.getElementById("ingredientList").querySelectorAll("li");
+const ingredients = document.querySelectorAll("#ingredientList li");
 
 servings.addEventListener("change", () => {
-  let factor = servings.value / 4; 
-  ingList.forEach(item => {
-    let base = item.getAttribute("data-base");
+  let newServ = Number(servings.value);
+  ingredients.forEach(item => {
+    let base = Number(item.getAttribute("data-base"));
     if (base > 0) {
-      item.textContent = (base * factor).toFixed(0) + " g " + item.textContent.replace(/^\d+.*/, "").trim();
+      let unit = item.textContent.replace(/^[0-9]+.*/, "").trim();
+      item.textContent = Math.round(base * newServ / 4) + " " + unit;
     }
   });
 });
 
-/* GIỎ MUA SẮM */
+/* SHOPPING LIST */
 const shoppingList = document.getElementById("shoppingList");
 
-ingList.forEach(item => {
+ingredients.forEach(item => {
   item.style.cursor = "pointer";
   item.addEventListener("click", () => {
     let li = document.createElement("li");
     li.textContent = item.textContent;
     li.draggable = true;
+
     li.addEventListener("dragstart", () => li.classList.add("dragging"));
     li.addEventListener("dragend", () => li.classList.remove("dragging"));
+
     shoppingList.appendChild(li);
   });
 });
@@ -424,17 +495,17 @@ ingList.forEach(item => {
 shoppingList.addEventListener("dragover", e => {
   e.preventDefault();
   const dragging = document.querySelector(".dragging");
-  const after = [...shoppingList.querySelectorAll("li:not(.dragging)")].find(li => {
-    return e.clientY <= li.offsetTop + li.offsetHeight / 2;
-  });
+  const after = [...shoppingList.querySelectorAll("li:not(.dragging)")].find(li =>
+    e.clientY <= li.offsetTop + li.offsetHeight / 2
+  );
   after ? shoppingList.insertBefore(dragging, after) : shoppingList.appendChild(dragging);
 });
 
 /* WHEEL */
-const dishes = ["Kho quẹt", "Bún thịt nướng", "Thịt kho tàu", "Sườn xào", "Trứng chiên", "Canh bí đỏ"];
+const dishes = ["Kho quẹt", "Sườn xào chua ngọt", "Bún chả", "Bánh cuốn thịt nướng", "Thịt bò khô", "Khô heo"];
 
 document.getElementById("spinBtn").addEventListener("click", () => {
-  let pick = dishes[Math.floor(Math.random()*dishes.length)];
+  let pick = dishes[Math.floor(Math.random() * dishes.length)];
   document.getElementById("result").textContent = "➡ Hôm nay nên ăn: " + pick + "!";
 });
 
@@ -442,16 +513,14 @@ document.getElementById("spinBtn").addEventListener("click", () => {
 const notes = document.getElementById("notes");
 const saveNotesBtn = document.getElementById("saveNotes");
 
-notes.value = localStorage.getItem("notes_khoquet") || "";
+notes.value = localStorage.getItem("notes_kho_quet") || "";
 
 saveNotesBtn.addEventListener("click", () => {
-  localStorage.setItem("notes_khoquet", notes.value);
-  alert("Đã lưu!");
+  localStorage.setItem("notes_kho_quet", notes.value);
+  alert("Đã lưu ghi chú!");
 });
 </script>
 
 </body>
 </html>
-
-
 
