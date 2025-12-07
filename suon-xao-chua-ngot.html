@@ -310,7 +310,6 @@
         <button class="mood-btn" data-mood="met">Mệt mỏi</button>
         <button class="mood-btn" data-mood="healthy">Muốn healthy</button>
         <button class="mood-btn" data-mood="voi">Đang vội</button>
-        <button class="mood-btn" data-mood="anui">Cần an ủi</button>
       </div>
       <div class="mood-note" id="moodNote" style="margin-top:10px;color:var(--muted);font-size:12px;"></div>
     </div>
@@ -467,12 +466,10 @@
       <a class="rec-card" href="kho-quet.html" style="text-decoration:none;color:inherit;border:1px dashed #ecdcd3;padding:12px;border-radius:16px;">
         <div class="rec-tag">Món mặn</div>
         <div class="rec-title"><strong>Kho quẹt</strong></div>
-        <div>Mặn ngọt hài hòa – chấm rau củ siêu hợp.</div>
       </a>
-      <a class="rec-card" href="thit-bo-kho.html" style="text-decoration:none;color:inherit;border:1px dashed #ecdcd3;padding:12px;border-radius:16px;">
+      <a class="rec-card" href="thit-quay-gion-bi" style="text-decoration:none;color:inherit;border:1px dashed #ecdcd3;padding:12px;border-radius:16px;">
         <div class="rec-tag">Món mặn</div>
-        <div class="rec-title"><strong>Thịt bò khô</strong></div>
-        <div>Đậm đà cay nhẹ – ăn vặt hoặc làm topping.</div>
+        <div class="rec-title"><strong>Thịt quay giòn bì</strong></div>
       </a>
     </div>
   </section>
@@ -613,7 +610,7 @@ const randomResult = document.getElementById("randomResult");
 const recipes = [
   { name: "Sườn xào chua ngọt", url: "suon-xao-chua-ngot.html" },
   { name: "Kho quẹt", url: "kho-quet.html" },
-  { name: "Thịt bò khô", url: "thit-bo-kho.html" }
+  { name: "Bánh pancake chuối", url: "banh-pancake-chuoi.html" }
 ];
 
 randomBtn.addEventListener("click", () => {
@@ -642,7 +639,6 @@ const moodTexts = {
   met: "Giảm bớt lượng đường trong sốt – ăn dịu nhẹ sẽ đỡ mệt hơn.",
   healthy: "Giảm dầu chiên, tăng thêm rau ăn kèm để bữa ăn cân bằng.",
   voi: "Làm nửa khẩu phần – sốt chua ngọt vẫn ngon mà nhanh hơn.",
-  anui: "Ăn kèm cơm nóng, thêm hành phi – món này chữa lành rất tốt."
 };
 
 moodBtn.addEventListener("click", () => {
@@ -672,3 +668,4 @@ if (!localStorage.getItem("seen_mood_popup_suon")) {
 
 </body>
 </html>
+
